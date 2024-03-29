@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import AppNav from "./AppNav";
 import Footer from "./Footer";
 import Logo from "./Logo";
@@ -8,7 +9,7 @@ export default function Sidebar() {
     <div className={styles.sidebar}>
       <Logo />
       <AppNav />
-      <p>List of cities</p>
+      <Outlet/>   {/*this is where the nested Routes component will render and outlet is a built it comp of react-router-dom it render the nested routes components*/}
       <Footer />
     </div>
   );
