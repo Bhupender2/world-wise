@@ -11,7 +11,7 @@ import CityList from "./components/CityList";
 const BASE_URL = "http://localhost:9000";
 
 export default function App() {
-  const [cities, setCities] = useState({});
+  const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function App() {
         console.log(data)
         setCities(data);
       } catch {
-        console.log("data is not fetched ");
+        alert("There was an Error loading data ");
       } finally {
         setIsLoading(false);
       }
@@ -39,9 +39,9 @@ export default function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/app" element={<AppLayout />}>
-          <Route index element={<CityList/>} />
+          <Route index element={<CityList cities={cities} isLoading={isLoading}/>} />
           {/* it is render is there is no nested routes its the default*/}
-          <Route path="cities" element={<CityList/>} />
+          <Route path="cities" element={<CityList cities={cities} isLoading={isLoading}/>} />
           <Route path="countries" element={<p>Countries</p>} />
           <Route path="form" element={<p>Form</p>} />
         </Route>
