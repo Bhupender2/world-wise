@@ -2,6 +2,9 @@
 @import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
 @import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
 
+/* Add Noto Color Emoji font for emojis */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
   --color-brand--1: #ffb545;
