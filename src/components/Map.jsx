@@ -8,8 +8,14 @@ function Map() {
   const lng = searchParams.get("lng");
   return (
     <div className={styles.mapContainer}>
-      Map:Position{lat}
-      {lng}
+      <h1>Map</h1>
+      <h1>
+        Position :{lat},{lng}
+      </h1>
+      <button onClick={() => SetSearchParams({ lat: 23, lng: 58 })}>
+        {/* we can even update the query string */}
+        Change Position
+      </button>
     </div>
   );
 }
