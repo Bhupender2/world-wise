@@ -13,7 +13,7 @@ function CityItem({ city }) {
     <li>
       <Link
         className={styles.cityItem}
-        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+        to={`${id}?lat=${position.lat}&lng=${position.lng}`} // now its accessable to every component without even storing it
       >
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
