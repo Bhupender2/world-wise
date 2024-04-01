@@ -24,10 +24,15 @@ function City() {
 
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
-  return <>
-    <div>City :{id}</div>
-    <p> Position :{lat},{lng}</p>  {/*we store it in URl and now its accessible to every component*/}
-  </>;
+  return (
+    <>
+      <div>City :{id}</div>
+      <p>
+        Position :{lat},{lng}
+      </p>
+      {/*we store it in URl and now its accessible to every component*/}
+    </>
+  );
 
   // return (
   //   <div className={styles.city}>
