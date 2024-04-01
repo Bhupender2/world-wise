@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/HomePage";
 import PageNotFound from "./pages/PageNotFound";
 import Pricing from "./pages/Pricing";
@@ -44,7 +44,7 @@ export default function App() {
         <Route path="app" element={<AppLayout />}>
           <Route
             index
-            element={<CityList cities={cities} isLoading={isLoading} />}
+            element={<Navigate replace to="cities" />}
           />
           {/* it is render is there is no nested routes its the default*/}
           <Route
