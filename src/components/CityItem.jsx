@@ -15,7 +15,7 @@ function CityItem({ city }) {
     <li>
       <Link
         className={`${styles.cityItem} ${
-          id === currentCity.id ? styles["cityItem--active"] : ""
+          id === currentCity.id ? styles["cityItem--active"] : "" // styles.cityitem--active can't be written so we use "[ ]" notation
         }`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`} // now its accessable to every component without even storing it
       >
