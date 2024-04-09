@@ -1,5 +1,5 @@
 /* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
-@import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 @import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
 
 /* Add Noto Color Emoji font for emojis */
@@ -79,3 +79,12 @@ input:focus {
     "description": "Import CSS Module as `styles`"
   },
 */
+:root {
+  --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .map-tiles {
+      filter:var(--map-tiles-filter, none);
+}
+}
