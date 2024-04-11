@@ -9,12 +9,14 @@ import {
 } from "react-leaflet";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
+import { useGeolocation } from "../hooks/useGeolocation";
 import styles from "./Map.module.css";
 
 function Map() {
   const [searchParams, SetSearchParams] = useSearchParams();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
+  const {} = useGeolocation();
 
   const maplat = searchParams.get("lat");
   const maplng = searchParams.get("lng");
@@ -50,7 +52,7 @@ function Map() {
           </Marker>
         ))}
         <ChangeCenter position={mapPosition} />
-        <DetectClick/>
+        <DetectClick />
       </MapContainer>
     </div>
   );
