@@ -11,24 +11,45 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import styles from "./Map.module.css";
+import Button from "./Button";
 
 function Map() {
   const [searchParams, SetSearchParams] = useSearchParams();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
-  const {} = useGeolocation();
+  const {
+    isLoading: isLoadingPosition,
+    position: geolocationPosition,
+    getPosition,
+  } = useGeolocation();
 
   const maplat = searchParams.get("lat");
   const maplng = searchParams.get("lng");
 
   useEffect(
     function () {
-      if (maplat && maplng) setMapPosition([maplat, maplng]); //it will run every time the maplat,laplng values changes and we fetching data from url so its a side effect too so we use useffect to synchronise the map and the cty comp .we want to remember the maplat, maplng even after they are not defined(not exist)
+      if (maplat && maplng) setMapPosition([maplat, maplng]); //it will run every time the maplat,laplng values changes and we fetching data from url so its a side effect too so we use useffect to synchronise the map and the cty comp . we want to remember the maplat, maplng even after they are not defined(not exist)
     },
     [maplat, maplng]
   );
+
+  useEffect(
+    function () {
+      if (geolocationPosition)
+        // by default geoLocationPositon is null as we have given the default value to none
+        setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+      console.log(geolocationPosition);
+    },
+    [geolocationPosition]
+  );
   return (
     <div className={styles.mapContainer}>
+      {!geolocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {/*we have already declared getPosition in the geoLocation Costum Hook */}
+          {isLoadingPosition ? "Loading..." : "Use Your Location"}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         // center={[maplat, maplng]} // but it isn't reactive on changing the lat, lng . center will not be reactive so we have to do this ourself
