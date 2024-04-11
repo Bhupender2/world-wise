@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
-import { MapContainer, Popup, Marker, TileLayer, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  Popup,
+  Marker,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import styles from "./Map.module.css";
 
 function Map() {
   const [searchParams, SetSearchParams] = useSearchParams();
-  const navigate = useNavigate(); // we use useNavigate to programatically navigate bewteen routes without clicking on any Links .its an imperavtive way of navigation bewteen routes  TODO onClick={() => navigate("form")} TODO
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
 
@@ -44,6 +50,7 @@ function Map() {
           </Marker>
         ))}
         <ChangeCenter position={mapPosition} />
+        <DetectClick/>
       </MapContainer>
     </div>
   );
@@ -53,6 +60,13 @@ function ChangeCenter({ position }) {
   const map = useMap(); // to get the current instance of the map that is currently being displayed
   map.setView(position);
   return null;
+}
+
+function DetectClick() {
+  const navigate = useNavigate(); //we use useNavigate to programatically navigate bewteen routes without clicking on any Links .its an imperavtive way of navigation bewteen routes  TODO onClick={() => navigate("form")} TODO
+  useMapEvents({
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
 }
 
 export default Map;
