@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { MapContainer, Popup, Marker, TileLayer } from "react-leaflet";
+import { useEffect, useState } from "react";
+import { MapContainer, Popup, Marker, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import styles from "./Map.module.css";
@@ -10,13 +10,21 @@ function Map() {
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
 
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const maplat = searchParams.get("lat");
+  const maplng = searchParams.get("lng");
+
+  useEffect(
+    function () {
+      if (maplat && maplng) setMapPosition([maplat, maplng]); //it will run every time the maplat,laplng values changes and we fetching data from url so its a side effect too so we use useffect to synchronise the map and the cty comp .we want to remember the maplat, maplng even after they are not defined(not exist)
+    },
+    [maplat, maplng]
+  );
   return (
     <div className={styles.mapContainer}>
       <MapContainer
         center={mapPosition}
-        zoom={13}
+        // center={[maplat, maplng]} // but it isn't reactive on changing the lat, lng . center will not be reactive so we have to do this ourself
+        zoom={6}
         scrollWheelZoom={true}
         className={styles.map}
       >
@@ -25,16 +33,26 @@ function Map() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {cities.map((city) => (
-          <Marker position={[city.position.lat, city.position.lng]}>
+          <Marker
+            position={[city.position.lat, city.position.lng]}
+            key={city.id}
+          >
             <Popup>
               <span>{city.cityName}</span> <br />
               <span className={styles.emoji}>{city.emoji}</span>
             </Popup>
           </Marker>
         ))}
+        <ChangeCenter position={mapPosition} />
       </MapContainer>
     </div>
   );
+}
+
+function ChangeCenter({ position }) {
+  const map = useMap(); // to get the current instance of the map that is currently being displayed
+  map.setView(position);
+  return null;
 }
 
 export default Map;
