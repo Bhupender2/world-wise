@@ -31,6 +31,7 @@ function Form() {
   const [geocodingError, setGeocodingError] = useState("");
 
   useEffect(() => {
+    if (!lat && !lng) return; // if there is no lat, lng so it will return nothing and it will not fetch data based on lat,lng
     async function fetchCityData() {
       try {
         setIsLoadingGeoCoding(true);
@@ -56,44 +57,45 @@ function Form() {
     fetchCityData();
   }, [lat, lng]);
 
-  if (geocodingError) return <Message message={geocodingError} />
-  if (isLoadingGeoCoding)  return <Spinner/>
-    return (
-      <form className={styles.form}>
-        <div className={styles.row}>
-          <label htmlFor="cityName">{cityName}</label>
-          <input
-            id="cityName"
-            onChange={(e) => setCityName(e.target.value)}
-            value={cityName}
-          />
-          <span className={`${styles.flag} ${styles.emoji}`}>{emoji}</span>
-        </div>
+  if (geocodingError) return <Message message={geocodingError} />;
+  if(!lat && !lng) return <Message message="there is no city get city by clicking somewhere on the Map😊 "/>
+  if (isLoadingGeoCoding) return <Spinner />;
+  return (
+    <form className={styles.form}>
+      <div className={styles.row}>
+        <label htmlFor="cityName">{cityName}</label>
+        <input
+          id="cityName"
+          onChange={(e) => setCityName(e.target.value)}
+          value={cityName}
+        />
+        <span className={`${styles.flag} ${styles.emoji}`}>{emoji}</span>
+      </div>
 
-        <div className={styles.row}>
-          <label htmlFor="date">When did you go to {cityName}?</label>
-          <input
-            id="date"
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
-          />
-        </div>
+      <div className={styles.row}>
+        <label htmlFor="date">When did you go to {cityName}?</label>
+        <input
+          id="date"
+          onChange={(e) => setDate(e.target.value)}
+          value={date}
+        />
+      </div>
 
-        <div className={styles.row}>
-          <label htmlFor="notes">Notes about your trip to {cityName}</label>
-          <textarea
-            id="notes"
-            onChange={(e) => setNotes(e.target.value)}
-            value={notes}
-          />
-        </div>
+      <div className={styles.row}>
+        <label htmlFor="notes">Notes about your trip to {cityName}</label>
+        <textarea
+          id="notes"
+          onChange={(e) => setNotes(e.target.value)}
+          value={notes}
+        />
+      </div>
 
-        <div className={styles.buttons}>
-          <Button type="primary"> Add </Button>
-          <BackButton />
-        </div>
-      </form>
-    );
+      <div className={styles.buttons}>
+        <Button type="primary"> Add </Button>
+        <BackButton />
+      </div>
+    </form>
+  );
 }
 
 export default Form;
