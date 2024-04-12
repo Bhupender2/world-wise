@@ -23,7 +23,7 @@ function Map() {
     getPosition,
   } = useGeolocation();
 
-  const [maplat, maplng] = useUrlPosition(); // whenever we need the position from the URL we need to call this costum HOOK 
+  const [maplat, maplng] = useUrlPosition(); // whenever we need the position from the URL we need to call this costum HOOK
 
   useEffect(
     function () {
