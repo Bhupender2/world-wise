@@ -21,7 +21,7 @@ function Map() {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
-  } = useGeolocation();
+  } = useGeolocation();// using useGeolocation to get the current position of our user
 
   const [maplat, maplng] = useUrlPosition(); // whenever we need the position from the URL we need to call this costum HOOK
 
@@ -87,7 +87,7 @@ function ChangeCenter({ position }) {
 function DetectClick() {
   const navigate = useNavigate(); //we use useNavigate to programatically navigate bewteen routes without clicking on any Links .its an imperavtive way of navigation bewteen routes  TODO onClick={() => navigate("form")} TODO
   useMapEvents({
-    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`), //here the event object is coming from leaflet library not from dom
   });
 }
 
