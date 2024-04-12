@@ -23,7 +23,7 @@
 .flag {
   position: absolute;
   right: 1rem;
-  top: 2.7rem;
+  top: 3.7rem;
   font-size: 2.8rem;
 }
 
@@ -41,4 +41,9 @@
 :global(.react-datepicker) {
   font-family: inherit;
   font-size: 1.2rem;
+}
+.emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+  font-family: "Noto Color Emoji", sans-serif;
 }
