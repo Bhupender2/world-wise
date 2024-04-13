@@ -33,6 +33,10 @@ function Form() {
 
   const [geocodingError, setGeocodingError] = useState("");
 
+  function handleSubmit(e) {
+    e.preventDefault(); // it will prevent the form to reload
+  }
+
   useEffect(() => {
     if (!lat && !lng) return; // if there is no lat, lng so it will return nothing and it will not fetch data based on lat,lng
     async function fetchCityData() {
@@ -67,7 +71,7 @@ function Form() {
     );
   if (isLoadingGeoCoding) return <Spinner />;
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">{cityName}</label>{" "}
         {/* htmlFor and id should be same so onclicking the label the input field should be active and seleceted*/}
@@ -81,12 +85,13 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        {/* <input
+
+        <DatePicker
           id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        /> */}
-        <DatePicker />
+          selected={date}
+          onChange={(date) => setDate(date)} // in this callback function we will get a date not an event object
+          dateFormat="dd/MM/yyyy"
+        />
       </div>
 
       <div className={styles.row}>
