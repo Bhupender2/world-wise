@@ -1,87 +1,27 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
-    },
-    {
-      "cityName": "Madrid",
+      "id": "3cc6",
+      "cityName": "Valle de Santibanez",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
+      "date": "2024-04-13T20:41:25.473Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "id": "ce57",
-      "cityName": "Sadaba",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-04-13T16:34:24.931Z",
-      "notes": "ssss",
-      "position": {
-        "lat": "42.34321874362947",
-        "lng": "-1.3435106672394406"
+        "lat": "42.521555345822236",
+        "lng": "-3.8022231220468266"
       }
     },
     {
-      "id": "27c0",
-      "cityName": "Idanha-a-Nova",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-04-13T20:16:46.957Z",
-      "notes": "",
-      "position": {
-        "lat": "39.89420842766134",
-        "lng": "-7.059500462329141"
-      }
-    },
-    {
-      "id": "4401",
-      "cityName": "Albergaria-a-Velha",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-04-13T20:23:16.300Z",
-      "notes": "",
-      "position": {
-        "lat": "40.76494533323887",
-        "lng": "-8.486431797708429"
-      }
-    },
-    {
-      "id": "14f6",
-      "cityName": "Carmona",
+      "id": "516e",
+      "cityName": "Tordesillas",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2024-04-13T20:23:21.858Z",
+      "date": "2024-04-13T20:41:30.628Z",
       "notes": "",
       "position": {
-        "lat": "37.355515831896156",
-        "lng": "-5.5661147633766355"
+        "lat": "41.51053502981642",
+        "lng": "-5.035016249614107"
       }
     }
   ]
