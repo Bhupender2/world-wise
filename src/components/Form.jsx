@@ -1,6 +1,9 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useEffect, useState } from "react";
+// import "react-datepicker/dist/react-datepicker-cssmodules.css"; //react-datepicker css modules that needs to be imported
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import BackButton from "./BackButton";
 import Button from "./Button";
@@ -64,9 +67,10 @@ function Form() {
     );
   if (isLoadingGeoCoding) return <Spinner />;
   return (
-    <form className={styles.form} >
+    <form className={styles.form}>
       <div className={styles.row}>
-        <label htmlFor="cityName">{cityName}</label>
+        <label htmlFor="cityName">{cityName}</label>{" "}
+        {/* htmlFor and id should be same so onclicking the label the input field should be active and seleceted*/}
         <input
           id="cityName"
           onChange={(e) => setCityName(e.target.value)}
@@ -77,11 +81,12 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        {/* <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
-        />
+        /> */}
+        <DatePicker />
       </div>
 
       <div className={styles.row}>
