@@ -11,6 +11,8 @@ import Button from "./Button";
 import styles from "./Form.module.css";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import { useCities } from "../contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -22,20 +24,16 @@ export function convertToEmoji(countryCode) {
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client"; // to get the info about that particular position
 function Form() {
+  const [lat, lng] = useUrlPosition();
+  const { createCity, isLoading } = useCities();
+  const navigate = useNavigate();
   const [isLoadingGeoCoding, setIsLoadingGeoCoding] = useState(false);
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
-
-  const [lat, lng] = useUrlPosition();
   const [emoji, setEmoji] = useState("");
-
   const [geocodingError, setGeocodingError] = useState("");
-
-  function handleSubmit(e) {
-    e.preventDefault(); // it will prevent the form to reload
-  }
 
   useEffect(() => {
     if (!lat && !lng) return; // if there is no lat, lng so it will return nothing and it will not fetch data based on lat,lng
@@ -64,6 +62,25 @@ function Form() {
     fetchCityData();
   }, [lat, lng]);
 
+  async function handleSubmit(e) {
+    e.preventDefault(); // it will prevent the form to reload
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: {
+        lat,
+        lng,
+      },
+    };
+   await createCity(newCity); // after calling this function right after the navigation will happen thats not we want so its an aync function so we call use "await" keyword and for using await we haveto give async keyword to handleSubmit
+    navigate("/app/cities");
+  }
+
   if (geocodingError) return <Message message={geocodingError} />;
   if (!lat && !lng)
     return (
@@ -71,7 +88,10 @@ function Form() {
     );
   if (isLoadingGeoCoding) return <Spinner />;
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">{cityName}</label>{" "}
         {/* htmlFor and id should be same so onclicking the label the input field should be active and seleceted*/}
@@ -88,8 +108,8 @@ function Form() {
 
         <DatePicker
           id="date"
-          selected={date}
           onChange={(date) => setDate(date)} // in this callback function we will get a date not an event object
+          selected={date}
           dateFormat="dd/MM/yyyy"
         />
       </div>
