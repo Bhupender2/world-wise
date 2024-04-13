@@ -64,7 +64,7 @@ function Form() {
     );
   if (isLoadingGeoCoding) return <Spinner />;
   return (
-    <form className={styles.form}>
+    <form className={styles.form} >
       <div className={styles.row}>
         <label htmlFor="cityName">{cityName}</label>
         <input
