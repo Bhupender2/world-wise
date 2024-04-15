@@ -1,16 +1,3 @@
 {
-  "cities": [
-    {
-      "id": "516e",
-      "cityName": "Tordesillas",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-04-13T20:41:30.628Z",
-      "notes": "",
-      "position": {
-        "lat": "41.51053502981642",
-        "lng": "-5.035016249614107"
-      }
-    }
-  ]
+  "cities": []
 }

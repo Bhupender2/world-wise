@@ -14,6 +14,13 @@ function reducer(state, action) {
   switch (action.type) {
     case "cities/loaded":
       return { ...state, cities: action.payload };
+    case "currentCity/loaded":
+      return { ...state, currentCity: action.payload };
+    case "city/created":
+      return { ...state, cities: [...state.cities, action.payload] };
+
+    case "city/deleted":
+      return { ...state , cities:state.cities.filter((city) => city.id !== action.payload)};
     default:
       throw new Error("there is an error in loadind data");
   }
@@ -42,21 +49,17 @@ function CitiesProvider({ children }) {
 
   async function getCity(id) {
     try {
-      setIsLoading(true);
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
-      setCurrentCity(data);
+      dispatch({ type: "currentCity/loaded", payload: data });
     } catch {
-      alert("gandu error aaraha h");
-    } finally {
-      setIsLoading(false);
+      alert("there is a error in getting the currentCity");
     }
   }
 
   // TODO creating a new city
   async function createCity(newCity) {
     try {
-      setIsLoading(true);
       const res = await fetch(`${BASE_URL}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -65,26 +68,23 @@ function CitiesProvider({ children }) {
         },
       }); //using POST method we are submitting the data to our fake server
       const data = await res.json();
-      setCities((cities) => [...cities, data]);
+      dispatch({ type: "city/created", payload: data });
+      // setCities((cities) => [...cities, data]);
     } catch {
       alert("There was an error creating a new city...");
-    } finally {
-      setIsLoading(false);
     }
   }
   // TODO deleting a city
   async function deleteCity(id) {
     try {
-      setIsLoading(true);
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       }); //using DELETE method to delete  the data to our fake server
+      dispatch({ type: "city/deleted", payload: id });
 
-      setCities((cities) => cities.filter((city) => city.id !== id));
+      // setCities((cities) => cities.filter((city) => city.id !== id));
     } catch {
       alert("There was an error deleting the city data...");
-    } finally {
-      setIsLoading(false);
     }
   }
   return (
