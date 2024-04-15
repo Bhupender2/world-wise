@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "id": "3cc6",
-      "cityName": "Valle de Santibanez",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-04-13T20:41:25.473Z",
-      "notes": "",
-      "position": {
-        "lat": "42.521555345822236",
-        "lng": "-3.8022231220468266"
-      }
-    },
-    {
       "id": "516e",
       "cityName": "Tordesillas",
       "country": "Spain",

@@ -4,6 +4,8 @@ const CitiesContext = createContext();
 
 const BASE_URL = "http://localhost:9000";
 
+//reducer are pure function which means we can't do these API requests so we do the api requests in useEffects and after getting data we dispatch the action when async data and async code is involved then we don't get the benefit of simply passing the dispatch function in the context value
+
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
