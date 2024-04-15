@@ -1,29 +1,40 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const CitiesContext = createContext();
 
 const BASE_URL = "http://localhost:9000";
 
+const initialState = {
+  cities: [],
+  isLoading: false,
+  currentCity: {},
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "cities/loaded":
+      return { ...state, cities: action.payload };
+    default:
+      throw new Error("there is an error in loadind data");
+  }
+}
 //reducer are pure function which means we can't do these API requests so we do the api requests in useEffects and after getting data we dispatch the action when async data and async code is involved then we don't get the benefit of simply passing the dispatch function in the context value
 
 function CitiesProvider({ children }) {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentCity, setCurrentCity] = useState({});
-
+  const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   useEffect(() => {
     //we want to see the data on mount and fetching data is a side effect so we use useEffect
     async function fetchCities() {
       try {
-        setIsLoading(true);
         const res = await fetch(`${BASE_URL}/cities`); // await -- basically wait the promise to reesolve and then proceed the execution
         const data = await res.json();
         console.log(data);
-        setCities(data);
+        dispatch({ type: "cities/loaded", payload: data });
       } catch {
         alert("There was an Error loading data ");
-      } finally {
-        setIsLoading(false);
       }
     }
     fetchCities();
@@ -78,7 +89,14 @@ function CitiesProvider({ children }) {
   }
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoading, getCity, currentCity, createCity,deleteCity }}
+      value={{
+        cities,
+        isLoading,
+        getCity,
+        currentCity,
+        createCity,
+        deleteCity,
+      }}
     >
       {children}
     </CitiesContext.Provider>
