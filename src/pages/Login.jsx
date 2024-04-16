@@ -20,7 +20,7 @@ export default function Login() {
 
   useEffect(() => {
     // after callimg login function isAuthenticated will be true and then isAuthentiated value is change so useEffect will be executed again:)
-    if (isAuthenticated) navigate("/app", { replace: true }); // it will override the login page in the hostory stack it will basically delete the login page from the history stack 
+    if (isAuthenticated) navigate("/app", { replace: true }); // it will override the login page in the hostory stack it will basically delete the login page from the history stack
   }, [isAuthenticated, navigate]);
 
   return (
