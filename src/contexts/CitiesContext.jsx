@@ -67,7 +67,7 @@ function CitiesProvider({ children }) {
   }, []);
 
   async function getCity(id) {
-    // id is coming from URL so its automatically a string so we need to convert it 
+    // id is coming from URL so its automatically a string so we need to convert it
     if (Number(id) === currentCity.id) return;
     dispatch({ type: "loading" });
     try {
@@ -140,11 +140,13 @@ function CitiesProvider({ children }) {
 
 function useCities() {
   const context = useContext(CitiesContext);
+
+  if (context === undefined)
+    throw new Error("CitiesContext are used outside of CitiesProvider");
   return context;
 }
 
 export { CitiesProvider, useCities };
-
 
 // dispatch function in context API
 // 1. we can pass the dispatch function in the context value prop but than we need to write all the async logic to the component which is not a good approach because it made the code less readable so its better to write your dispatch function inside an event handler function and then pass the event handler to the context value (its the best approach while dealing with async code )
