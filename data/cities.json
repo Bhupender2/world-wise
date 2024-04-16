@@ -1,30 +1,6 @@
 {
   "cities": [
     {
-      "id": "757f",
-      "cityName": "Bustillo del Paramo de Carrion",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-04-16T09:08:48.220Z",
-      "notes": "",
-      "position": {
-        "lat": "42.37593715780635",
-        "lng": "-4.724657488573219"
-      }
-    },
-    {
-      "id": "1d84",
-      "cityName": "Segovia",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-04-16T09:08:51.177Z",
-      "notes": "",
-      "position": {
-        "lat": "40.94881651428022",
-        "lng": "-4.179691840333762"
-      }
-    },
-    {
       "id": "babe",
       "cityName": "Santisteban del Puerto",
       "country": "Spain",
@@ -34,6 +10,18 @@
       "position": {
         "lat": "38.292500161642174",
         "lng": "-3.3010835874577786"
+      }
+    },
+    {
+      "id": "9d71",
+      "cityName": "El Hassi, Batna",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2024-04-16T15:02:59.036Z",
+      "notes": "",
+      "position": {
+        "lat": "35.7852941027806",
+        "lng": "5.954589843750001"
       }
     }
   ]

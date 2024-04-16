@@ -15,11 +15,12 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     if (email && password) login(email, password);
-    console.log(email,password)
+    console.log(email, password);
   }
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/app");
+    // after callimg login function isAuthenticated will be true and then isAuthentiated value is change so useEffect will be executed again:)
+    if (isAuthenticated) navigate("/app", { replace: true }); // it will override the login page in the hostory stack it will basically delete the login page from the history stack 
   }, [isAuthenticated, navigate]);
 
   return (
