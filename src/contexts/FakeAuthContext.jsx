@@ -14,7 +14,7 @@ const FAKE_USER = {
 };
 
 function reducer(state, action) {
-  switch (action.payload) {
+  switch (action.type) {
     case "login":
       return { ...state, user: action.payload, isAuthenticated: true };
 
@@ -32,8 +32,12 @@ function AuthProvider({ children }) {
   );
 
   function login(email, password) {
-    if (email === FAKE_USER.email && password === FAKE_USER.email)
+    if (email === FAKE_USER.email && password === FAKE_USER.password)
       dispatch({ type: "login", payload: FAKE_USER });
+    else {
+      // If credentials do not match, you might want to handle invalid login attempt here
+      console.log("Invalid email or password");
+    }
   }
 
   function logout() {
