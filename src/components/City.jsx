@@ -28,7 +28,8 @@ function City() {
 
   useEffect(() => {
     getCity(id); //fetching the individual object data
-  }, [id]);
+  }, [id, getCity]);
+
   if (isLoading) return <Spinner />;
 
   // const [searchParams, SetSearchParams] = useSearchParams();
