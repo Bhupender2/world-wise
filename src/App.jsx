@@ -1,24 +1,35 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Homepage from "./pages/HomePage";
-import PageNotFound from "./pages/PageNotFound";
-import Pricing from "./pages/Pricing";
-import Product from "./pages/Product";
-import AppLayout from "./pages/AppLayout";
-import Login from "./pages/Login";
-import CityList from "./components/CityList";
-import CountryList from "./components/CountryList";
+import { AuthProvider } from "./contexts/FakeAuthContext";
+import { CitiesProvider } from "./contexts/CitiesContext";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import City from "./components/City";
 import Form from "./components/Form";
-import { CitiesProvider } from "./contexts/CitiesContext";
-import { AuthProvider } from "./contexts/FakeAuthContext";
-import ProtectedRoute from "./pages/ProtectedRoute";
+import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
+import { lazy, Suspense } from "react";
+import SpinnerFullPage from "./components/SpinnerFullPage";
+
+// import Homepage from "./pages/HomePage";
+// import Pricing from "./pages/Pricing";
+// import Product from "./pages/Product";
+// import AppLayout from "./pages/AppLayout";
+// import Login from "./pages/Login";
+// import PageNotFound from "./pages/PageNotFound";
+
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Product = lazy(() => import("./pages/Product"));
+const AppLayout = lazy(() => import("./pages/AppLayout"));
+const Login = lazy(() => import("./pages/Login"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
 export default function App() {
   return (
     <AuthProvider>
       <CitiesProvider>
         <BrowserRouter>
-          <Routes>
+        <Suspense fallback={<SpinnerFullPage/>}>
+        <Routes>
             <Route index element={<Homepage />} />
             <Route path="product" element={<Product />} />
             <Route path="pricing" element={<Pricing />} />
@@ -40,6 +51,7 @@ export default function App() {
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
+        </Suspense>
         </BrowserRouter>
       </CitiesProvider>
     </AuthProvider>
