@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "id": "babe",
-      "cityName": "Santisteban del Puerto",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-04-16T09:08:53.938Z",
-      "notes": "",
-      "position": {
-        "lat": "38.292500161642174",
-        "lng": "-3.3010835874577786"
-      }
-    },
-    {
       "id": "9d71",
       "cityName": "El Hassi, Batna",
       "country": "Algeria",
@@ -22,66 +10,6 @@
       "position": {
         "lat": "35.7852941027806",
         "lng": "5.954589843750001"
-      }
-    },
-    {
-      "id": "9852",
-      "cityName": "Soria",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-04-20T13:45:13.253Z",
-      "notes": "",
-      "position": {
-        "lat": "41.72268037322095",
-        "lng": "-2.5074438731757924"
-      }
-    },
-    {
-      "id": "6f63",
-      "cityName": "Washer",
-      "country": "Afghanistan",
-      "emoji": "🇦🇫",
-      "date": "2024-04-20T13:49:42.830Z",
-      "notes": "",
-      "position": {
-        "lat": "31.93351676190369",
-        "lng": "63.96240234375001"
-      }
-    },
-    {
-      "id": "8f44",
-      "cityName": "Villarroya de la Sierra",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-05-11T02:35:39.889Z",
-      "notes": "",
-      "position": {
-        "lat": "41.50976211397664",
-        "lng": "-1.7545539007036839"
-      }
-    },
-    {
-      "id": "329e",
-      "cityName": "Moral de Hornuez",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-05-11T02:35:46.181Z",
-      "notes": "",
-      "position": {
-        "lat": "41.46085436343294",
-        "lng": "-3.6662746022924413"
-      }
-    },
-    {
-      "id": "f920",
-      "cityName": "Hautefage-la-Tour",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-05-11T02:35:52.253Z",
-      "notes": "",
-      "position": {
-        "lat": "44.355977373536234",
-        "lng": "0.754327455037669"
       }
     }
   ]
