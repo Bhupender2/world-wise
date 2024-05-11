@@ -6,7 +6,7 @@
 }
 
 .product section {
-  width: clamp(80rem, 80%, 90rem);
+  /* width: clamp(100rem, 80%, 10rem); */
   margin: 6rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14,8 +14,8 @@
   align-items: center;
 }
 
-.product img {
-  width: 100%;
+.product > img {
+  width: 80%;
 }
 
 .product h2 {
@@ -31,4 +31,26 @@
 
 .product section a {
   margin-top: 2rem;
+}
+
+.product_image {
+  width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 962px) {
+  .product h2 {
+    font-size: 2rem;
+  }
+  .product p {
+    font-size: 1.3rem;
+  }
+  .product {
+    padding: 2.5rem 2rem;
+  }
+}
+@media (max-width: 685px) {
+  .product section {
+    display: block;
+  }
 }

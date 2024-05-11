@@ -5,7 +5,7 @@ import styles from "./Product.module.css";
 export default function Product() {
   return (
     <main className={styles.product}>
-    <PageNav/>
+      <PageNav />
       <section>
         <div>
           <h2>
@@ -19,7 +19,12 @@ export default function Product() {
             voluptatem iste.
           </p>
         </div>
-        <img src="img-2.jpg" alt="overview of a large city with skyscrapers" />
+
+        <img
+          src="img-2.jpg"
+          alt="overview of a large city with skyscrapers"
+          className={styles.product_image}
+        />
       </section>
     </main>
   );

@@ -47,6 +47,42 @@
         "lat": "31.93351676190369",
         "lng": "63.96240234375001"
       }
+    },
+    {
+      "id": "8f44",
+      "cityName": "Villarroya de la Sierra",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-05-11T02:35:39.889Z",
+      "notes": "",
+      "position": {
+        "lat": "41.50976211397664",
+        "lng": "-1.7545539007036839"
+      }
+    },
+    {
+      "id": "329e",
+      "cityName": "Moral de Hornuez",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-05-11T02:35:46.181Z",
+      "notes": "",
+      "position": {
+        "lat": "41.46085436343294",
+        "lng": "-3.6662746022924413"
+      }
+    },
+    {
+      "id": "f920",
+      "cityName": "Hautefage-la-Tour",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-05-11T02:35:52.253Z",
+      "notes": "",
+      "position": {
+        "lat": "44.355977373536234",
+        "lng": "0.754327455037669"
+      }
     }
   ]
 }
