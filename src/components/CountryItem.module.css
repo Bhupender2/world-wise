@@ -22,3 +22,9 @@
   line-height: 1;
   font-family: "Noto Color Emoji", sans-serif;
 }
+
+@media (max-width:446px){
+  .countryItem{
+    font-size:1rem
+  }
+}

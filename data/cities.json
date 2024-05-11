@@ -1,16 +1,3 @@
 {
-  "cities": [
-    {
-      "id": "9d71",
-      "cityName": "El Hassi, Batna",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2024-04-16T15:02:59.036Z",
-      "notes": "",
-      "position": {
-        "lat": "35.7852941027806",
-        "lng": "5.954589843750001"
-      }
-    }
-  ]
+  "cities": []
 }
