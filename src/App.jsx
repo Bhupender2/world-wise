@@ -10,7 +10,7 @@ import { lazy, Suspense } from "react";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 
 // import Homepage from "./pages/HomePage";
-// import Pricing from "./pages/Pricing";
+// import Pricing from "./pages/Pricing";      NORMSL IMPORT 
 // import Product from "./pages/Product";
 // import AppLayout from "./pages/AppLayout";
 // import Login from "./pages/Login";
@@ -19,7 +19,7 @@ import SpinnerFullPage from "./components/SpinnerFullPage";
 const Homepage = lazy(() => import("./pages/Homepage.jsx"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Product = lazy(() => import("./pages/Product"));
-const AppLayout = lazy(() => import("./pages/AppLayout"));
+const AppLayout = lazy(() => import("./pages/AppLayout"));     // LAZY LOAD IMPORT
 const Login = lazy(() => import("./pages/Login"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
@@ -30,7 +30,7 @@ export default function App() {
         <BrowserRouter>
           <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
-              <Route index element={<Homepage />} />
+              <Route index element={<Homepage/>} />
               <Route path="product" element={<Product />} />
               <Route path="pricing" element={<Pricing />} />
               <Route path="login" element={<Login />} />
