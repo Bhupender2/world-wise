@@ -1,3 +1,52 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "id": "07d7",
+      "cityName": "Dadri",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-05-11T19:13:20.461Z",
+      "notes": "",
+      "position": {
+        "lat": "28.518854878978708",
+        "lng": "77.38769531250001"
+      }
+    },
+    {
+      "id": "fd0b",
+      "cityName": "Taranagar",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-05-11T19:14:18.866Z",
+      "notes": "",
+      "position": {
+        "lat": "28.692458066490584",
+        "lng": "75.14648437500001"
+      }
+    },
+    {
+      "id": "3f73",
+      "cityName": "Dera Nanak",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-05-11T19:14:21.438Z",
+      "notes": "",
+      "position": {
+        "lat": "31.953032244111007",
+        "lng": "75.14648437500001"
+      }
+    },
+    {
+      "id": "ff24",
+      "cityName": "Mandi",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-05-11T19:14:24.002Z",
+      "notes": "",
+      "position": {
+        "lat": "33.85341034774046",
+        "lng": "74.26757812500001"
+      }
+    }
+  ]
 }
