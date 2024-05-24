@@ -9,7 +9,7 @@ Welcome to WorldWise, your ultimate travel companion application! Explore the wo
 <p align="left">
   <img src="src/demo/demo1.png" alt="Demo Image 1" width="330" height="auto" />
   <img src="src/demo/demo2.png" alt="Demo Image 2" width="330" height="auto" />
-  <img src="src/demo/demo3.png" alt="Demo Image 3" width="330" height="auto" />
+  <img src="src/demo/demo3.png" alt="Demo Image 3" width="660" height="auto" />
 </p>
 
 
