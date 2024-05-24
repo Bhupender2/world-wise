@@ -8,7 +8,7 @@ import {
 
 const CitiesContext = createContext();
 
-const BASE_URL = "http://localhost:9000";
+const BASE_URL = "https://world-wise-prod-data.onrender.com";
 
 const initialState = {
   cities: [],

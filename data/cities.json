@@ -1,51 +1,39 @@
 {
   "cities": [
     {
-      "id": "07d7",
+      "id": "47c6",
+      "cityName": "Langa de Duero",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-05-23T05:55:46.806Z",
+      "notes": "",
+      "position": {
+        "lat": "41.591954768976166",
+        "lng": "-3.3837890625000004"
+      }
+    },
+    {
+      "id": "71de",
       "cityName": "Dadri",
       "country": "India",
       "emoji": "🇮🇳",
-      "date": "2024-05-11T19:13:20.461Z",
+      "date": "2024-05-23T06:10:54.501Z",
       "notes": "",
       "position": {
-        "lat": "28.518854878978708",
+        "lat": "28.541094557811206",
         "lng": "77.38769531250001"
       }
     },
     {
-      "id": "fd0b",
-      "cityName": "Taranagar",
+      "id": "388e",
+      "cityName": "Faridabad",
       "country": "India",
       "emoji": "🇮🇳",
-      "date": "2024-05-11T19:14:18.866Z",
+      "date": "2024-05-23T06:13:49.530Z",
       "notes": "",
       "position": {
-        "lat": "28.692458066490584",
-        "lng": "75.14648437500001"
-      }
-    },
-    {
-      "id": "3f73",
-      "cityName": "Dera Nanak",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-05-11T19:14:21.438Z",
-      "notes": "",
-      "position": {
-        "lat": "31.953032244111007",
-        "lng": "75.14648437500001"
-      }
-    },
-    {
-      "id": "ff24",
-      "cityName": "Mandi",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-05-11T19:14:24.002Z",
-      "notes": "",
-      "position": {
-        "lat": "33.85341034774046",
-        "lng": "74.26757812500001"
+        "lat": "28.356481482249002",
+        "lng": "77.16934204101562"
       }
     }
   ]
