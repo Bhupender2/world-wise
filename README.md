@@ -1,10 +1,17 @@
-Certainly! Below is a refined version of the provided content for your GitHub README:
+Certainly! Here's the updated README with the demo images displayed:
 
 ---
 
 # 🌍 WorldWise
 
 Welcome to WorldWise, your ultimate travel companion application! Explore the world, track your adventures, and capture memories with ease. WorldWise is meticulously crafted with innovative technologies and features to enhance your globetrotting experience.
+
+<p align="left">
+  <img src="src/demo/demo1.png" alt="Demo Image 1" width="330" height="auto" />
+  <img src="src/demo/demo2.png" alt="Demo Image 2" width="330" height="auto" />
+  <img src="src/demo/demo3.png" alt="Demo Image 3" width="330" height="auto" />
+</p>
+
 
 ## 🚀 Tech Stacks
 
@@ -24,6 +31,10 @@ Welcome to WorldWise, your ultimate travel companion application! Explore the wo
 5. **Custom Context Hooks**: Personalized and intuitive experience with tailored context hooks for enhanced functionality.
 6. **Geolocation Integration**: Seamlessly track and record your current location, allowing easy pinpointing of destinations.
 7. **Responsive Design**: Consistent and optimized experience across a diverse range of devices for uninterrupted exploration.
+
+## 🌐 Live Demo
+
+Explore WorldWise live: [WorldWise Live Demo](https://world-wise-teal-seven.vercel.app/)
 
 Embark on a journey of discovery and adventure with WorldWise – where every destination is a new chapter waiting to be explored!
 
